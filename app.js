@@ -23,6 +23,7 @@ app.use('/', indexRoutes);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+
 //Middleware para subir archivos estaticos
 app.use(express.static('styles'));
 app.use(express.static('pictures'));
@@ -31,13 +32,14 @@ app.use(express.static('pictures'));
  * Settings
  */
 app.set('port', process.env.PORT || 8080);
-// app.set('styles', path.join(__dirname,'styles'));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 /**
  * App listening
  */
 app.listen(app.get('port'), () =>{
-    console.log(`Server on port ${app.get('port')}`);
+    console.log(`Server on port: ${app.get('port')}`);
 })
 
 
