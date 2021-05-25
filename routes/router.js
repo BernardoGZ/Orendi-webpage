@@ -6,4 +6,12 @@ router.get('/', async function(req,res){
     res.render("index");
 });
 
+router.get('/contacto', async function(req,res){
+    res.render("contacto");
+});
+
+router.get('/propiedades', async function(req,res){
+    res.render("propiedades");
+});
+
 module.exports = router;
