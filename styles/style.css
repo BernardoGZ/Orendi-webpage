@@ -27,3 +27,11 @@ hr{
     margin-left: 10%;
     margin-right: 10%;
 }
+.btn-circle {
+    
+    border-radius: 20px;
+
+}
+/* #photobooth{
+    background: url("casa1.jpg");
+} */
