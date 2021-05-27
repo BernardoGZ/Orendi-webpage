@@ -1,8 +1,4 @@
 body{
-    /* background: url("https://images.unsplash.com/photo-1532386236358-a33d8a9434e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"); */
-    background: url("casa1.jpg");
-    /* background-position: center; */
-    background-size: cover;
     font-family: 'Lato', sans-serif;
 }
 #info{
