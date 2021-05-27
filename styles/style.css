@@ -35,3 +35,8 @@ hr{
 /* #photobooth{
     background: url("casa1.jpg");
 } */
+
+.carousel-item img{
+    width: max-content;
+    height: 500px;
+}

@@ -13,5 +13,8 @@ router.get('/contacto', async function(req,res){
 router.get('/propiedades', async function(req,res){
     res.render("propiedades");
 });
+router.get('/about', async function(req,res){
+    res.render("acerca");
+});
 
 module.exports = router;
