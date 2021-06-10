@@ -9,7 +9,6 @@ const Property = require('../model/property');
 //Se proporciona todas las propiedades en la DB con el metodo find()
 router.get('/', async function(req,res){
     let properties = await Property.find();
-    // console.log(properties);
     res.render("index", {properties});
 });
 
