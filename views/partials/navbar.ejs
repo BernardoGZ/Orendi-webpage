@@ -24,7 +24,19 @@
                     <li > <a class="nav-link <% if (index == 4) { %> 
                         active <% } %>"
                         href="/contacto" >Contacto</a></li>
+                    <% if (admin){  %>
+                        <li > <a class="nav-link <% if (index == 5) { %> 
+                            active <% } %>"
+                            href="/agregar" >Agregar propiedades</a></li>
+                    <% } %>
                 </ul>
+                <% if (admin){  %>
+                <ul class="navbar-nav ms-auto">
+                    <li>
+                        <a href="/exit" class="btn btn-outline-primary">Cerrar sesión</a>
+                    </li>
+                </ul>
+                <% } %>
             </div>
         </div>
     </nav>

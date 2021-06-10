@@ -9,6 +9,7 @@ const verify = require("../middleware/access");
 dotenv.config();
 
 let secret = process.env.SECRET_KEY || "";
+let admin = false
 
 /**
  * Get methods
@@ -16,21 +17,21 @@ let secret = process.env.SECRET_KEY || "";
 //Se proporciona todas las propiedades en la DB con el metodo find()
 router.get('/', async function(req,res){
     let properties = await Property.find();
-    res.render("index", {properties});
+    res.render("index", {properties, admin});
 });
 
 router.get('/contacto', async function(req,res){
-    res.render("contacto");
+    res.render("contacto", {admin});
 });
 
 router.get('/propiedades', async function(req,res){
-    res.render("propiedades");
+    res.render("propiedades", {admin});
 });
 router.get('/about', async function(req,res){
-    res.render("acerca");
+    res.render("acerca", {admin});
 });
-router.get('/admin', async function(req,res){
-    res.render("admin");
+router.get('/agregar', async function(req,res){
+    res.render("agregar_propiedad", {admin});
 });
 router.get('/login', async function(req,res){
     res.render("login");
@@ -38,15 +39,20 @@ router.get('/login', async function(req,res){
 router.get('/register', async function(req,res){
     res.render("register");
 })
+router.get('/exit', async function(req,res){
+    admin = false;
+    res.render("admin_exit", {admin});
+})
+
 
 /**
  * Post methods
  */
 
- router.post('/admin', async function(req,res){
+ router.post('/agregar_propiedad', async function(req,res){
     let property = new Property(req.body);
     await property.save();
-    res.redirect("/admin");
+    res.redirect("/agregar_propiedad");
 });
 
 router.post('/register', async (req,res) => {
@@ -82,6 +88,7 @@ router.post('/login', async (req,res) => {
         let token = jwt.sign({id:user.email, permission:true}, secret, {expiresIn: "1h"  } );
         console.log("Token: " + token);
         res.cookie("token", token, {httpOnly:true, maxAge: 60000 })
+        admin = true;
         res.redirect('/');
 
       }
