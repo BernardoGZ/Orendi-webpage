@@ -31,7 +31,7 @@ router.get('/about', async function(req,res){
     res.render("acerca", {admin});
 });
 router.get('/agregar', async function(req,res){
-    res.render("agregar_propiedad", {admin});
+    res.render("admin/agregar_propiedad", {admin});
 });
 router.get('/login', async function(req,res){
     res.render("login");
@@ -41,7 +41,7 @@ router.get('/register', async function(req,res){
 })
 router.get('/exit', async function(req,res){
     admin = false;
-    res.render("admin_exit", {admin});
+    res.render("admin/admin_exit", {admin});
 })
 
 

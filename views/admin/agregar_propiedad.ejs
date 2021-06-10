@@ -1,6 +1,9 @@
+<% if (!admin){ %>
+    <p>Se necesita permiso de asministrador</p>
+<% } else { %>
 <% let index = 0%>
-<%- include ("partials/header") %>
-<%- include ("partials/navbar", {index}) %>
+<%- include ("../partials/header") %>
+<%- include ("../partials/navbar", {index}) %>
 <div class="mx-5">
     <form class="row g-3" method="POST">
         <div class="col-md-6">
@@ -66,4 +69,6 @@
         </div>
     </form>
 </div>    
-<%- include ("partials/footer") %>
+<%- include ("../partials/footer") %>
+
+<% } %>
