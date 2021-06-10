@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
-var secret = process.env.SECRET_KEY || "";
+let secret = process.env.SECRET_KEY || "";
 
 function verifyToken(req,res,next) {
 
-    var token = req.cookies.token || '';
+    let token = req.cookies.token || '';
 
     //console.log("token", token);
     

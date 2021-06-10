@@ -4,7 +4,11 @@ const path = require("path");
 const Property = require('../model/property');
 const User = require('../model/user');
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 const verify = require("../middleware/access");
+dotenv.config();
+
+let secret = process.env.SECRET_KEY || "";
 
 /**
  * Get methods
@@ -31,6 +35,9 @@ router.get('/admin', async function(req,res){
 router.get('/login', async function(req,res){
     res.render("login");
 })
+router.get('/register', async function(req,res){
+    res.render("register");
+})
 
 /**
  * Post methods
@@ -42,41 +49,50 @@ router.get('/login', async function(req,res){
     res.redirect("/admin");
 });
 
+router.post('/register', async (req,res) => {
+ 
+    //console.log(req.body);
+    var user = new User(req.body);
+    user.password = await user.encryptPassword(user.password);
+    
+    await user.save();
+  
+    res.redirect('/');
+  
+} )
+
 router.post('/login', async (req,res) => {
 
     let email = req.body.email;
     let password = req.body.password;
-
-    console.log(">>> Aqui estamos>>");
-
-
   
     let user = await User.findOne({email:email});
-  
+    
     if (!user) {
         return res.status(404).send("The user does not exist");
     }
   
     else {
-  
+        console.log("<<<< User founded<<< " + user);
       let valid = await user.validatePassword(password);
+      console.log("<<<<<" + valid);
   
       if (valid) {
-  
-        let token = jwt.sign({id:user.email, permission:true},secret, {expiresIn: "1h"  } );
-        console.log(token);
-        res.cookie("token", token, {httpOnly:true,maxAge: 60000 })
+
+        let token = jwt.sign({id:user.email, permission:true}, secret, {expiresIn: "1h"  } );
+        console.log("Token: " + token);
+        res.cookie("token", token, {httpOnly:true, maxAge: 60000 })
         res.redirect('/');
-  
+
       }
       else {
   
       console.log("Password is invalid");
-      res.end("Invalid");
+      res.end("Contraseña es incorrecta");
       }
   
     }
   
-    res.redirect('/');
+    // res.redirect('/');
   })
 module.exports = router;
