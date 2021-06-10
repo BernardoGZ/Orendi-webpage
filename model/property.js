@@ -12,11 +12,16 @@ const PropertySchema = Schema ({
     estado: String,
     codigo_postal: Number,
     image: Buffer,
-    // superficie: Number,
-    // cuartos: Number,
-    // banos: Number,
-    // incluye: String,
-    // servicios: String,
+    superficie: Number,
+    cuartos: Number,
+    banos: Number,
+    incluye: String,
+    servicios: String,
+    favorito : String,
+    // favorito: {
+    //     type: Boolean,
+    //     default: true
+    // },
     status: {
         type: Boolean, 
         default: true

@@ -10,7 +10,6 @@ const Property = require('../model/property');
 router.get('/', async function(req,res){
     let properties = await Property.find();
     // console.log(properties);
-    console.log(properties[0].precio.toLocaleString());
     res.render("index", {properties});
 });
 
