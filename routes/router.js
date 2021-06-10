@@ -41,4 +41,42 @@ router.get('/login', async function(req,res){
     await property.save();
     res.redirect("/admin");
 });
+
+router.post('/login', async (req,res) => {
+
+    let email = req.body.email;
+    let password = req.body.password;
+
+    console.log(">>> Aqui estamos>>");
+
+
+  
+    let user = await User.findOne({email:email});
+  
+    if (!user) {
+        return res.status(404).send("The user does not exist");
+    }
+  
+    else {
+  
+      let valid = await user.validatePassword(password);
+  
+      if (valid) {
+  
+        let token = jwt.sign({id:user.email, permission:true},secret, {expiresIn: "1h"  } );
+        console.log(token);
+        res.cookie("token", token, {httpOnly:true,maxAge: 60000 })
+        res.redirect('/');
+  
+      }
+      else {
+  
+      console.log("Password is invalid");
+      res.end("Invalid");
+      }
+  
+    }
+  
+    res.redirect('/');
+  })
 module.exports = router;
