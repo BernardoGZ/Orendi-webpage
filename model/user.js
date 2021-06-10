@@ -7,7 +7,7 @@ const UserSchema = Schema ({
 });
 
 UserSchema.methods.encryptPassword = async function(password){
-    var salt = await bcrypt.genSalt();
+    let salt = await bcrypt.genSalt();
     return bcrypt.hash(password,salt);
 }
 

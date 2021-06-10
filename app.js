@@ -24,7 +24,7 @@ app.use(express.json());
 
 //Middleware para subir archivos estaticos
 app.use(express.static('styles'));
-app.use(express.static('pictures'));
+app.use(express.static('img'));
 
 /**
  * Settings

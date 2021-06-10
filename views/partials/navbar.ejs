@@ -1,0 +1,30 @@
+<body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <div class="navbar-header">
+                    <img src="../../Orendi.jpeg" alt="No image" width="100" height="50">
+                    <a href="/" class="navbar-brand ms-5">
+                        Orendi Inmobiliaria
+                    </a>
+                </div>                
+                <ul class="navbar-nav mr-auto">  <!-- 'mr' represents the space to the item to the right -->
+                    <li > <a class="nav-link <% if (index == 1) { %> 
+                        active <% } %>"
+                        href="/" >Inicio</a></li>
+                    <li>  <a class="nav-link <% if (index == 2) { %> 
+                        active <% } %>"
+                        href="/about">Acerca de Orendi</a> </li>
+                    <li > <a class="nav-link <% if (index == 3) { %> 
+                        active <% } %>"
+                        href="/propiedades" >Propiedades</a></li>
+                    <li > <a class="nav-link <% if (index == 4) { %> 
+                        active <% } %>"
+                        href="/contacto" >Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>

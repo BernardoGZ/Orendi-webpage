@@ -1,5 +1,6 @@
 <% let index = 1 %>
-<%- include ("partials/header", {index}) %>
+<%- include ("partials/header") %>
+<%- include ("partials/navbar", {index}) %>
 <!-- Basic useful varables -->
 <% let layoutNum; %>
 <% if (properties.length < 12){layoutNum = properties.length} %>

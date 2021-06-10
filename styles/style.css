@@ -36,6 +36,11 @@ hr{
     width: max-content;
     height: 500px;
 }
-.title-cont{
-    background: url("casa2.jpeg");
+
+.login_main{
+    margin-top: 100pt;
+    margin-bottom: 100pt;
+    margin-left: 250pt;
+    margin-right: 250pt;
+    padding-bottom: 50pt;
 }
