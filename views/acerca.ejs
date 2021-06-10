@@ -1,4 +1,5 @@
-<%- include ("partials/header") %>
+<% let index = 2 %>
+<%- include ("partials/header", {index}) %>
 
 <main>
     <div style="background: center / cover url(../img_about.jpg); height: 300pt;">
@@ -11,6 +12,39 @@
             </div>
         </div>
     </div>
+    <div class="bg-light">
+        <div class="text-center py-5 my-3">
+            <h1> Quiénes somos  </h1>
+        </div>  
+        <div class="container">
+            <div class="row py-5 px-5 mx-5 border shadow-lg">
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid 
+                ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+                nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit 
+                anim id est laborum.</p>
+            </div>  
+            <div class="row pt-5 px-5 mx-3 text-center row-cols-md-2">
+                <div class="col px-3 py-1">
+                    <h3>Misión</h3>
+                </div>
+                <div class="col px-3 py-1">
+                    <h3>Valores</h3>
+                </div>                
+            </div>    
+            <div class="row pb-5 px-5 mx-3 row-cols-md-2">
+                <div class="col border shadow-lg px-5 py-3">
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid 
+                ex ea commodi consequat.</p>
+                </div>
+                <div class="col border shadow-lg px-5 py-3">
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid 
+                ex ea commodi consequat.</p>
+                </div>                
+            </div>          
+        </div> 
 </main>
 
 

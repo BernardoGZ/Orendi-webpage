@@ -25,10 +25,18 @@
                     </a>
                 </div>                
                 <ul class="navbar-nav mr-auto">  <!-- 'mr' represents the space to the item to the right -->
-                    <li > <a class="nav-link active " href="/" >Inicio</a></li>
-                    <li>  <a class="nav-link" href="/about">Acerca de Orendi</a> </li>
-                    <li > <a class="nav-link" href="/propiedades" >Propiedades</a></li>
-                    <li > <a class="nav-link" href="/contacto" >Contacto</a></li>
+                    <li > <a class="nav-link <% if (index == 1) { %> 
+                        active <% } %>"
+                        href="/" >Inicio</a></li>
+                    <li>  <a class="nav-link <% if (index == 2) { %> 
+                        active <% } %>"
+                        href="/about">Acerca de Orendi</a> </li>
+                    <li > <a class="nav-link <% if (index == 3) { %> 
+                        active <% } %>"
+                        href="/propiedades" >Propiedades</a></li>
+                    <li > <a class="nav-link <% if (index == 4) { %> 
+                        active <% } %>"
+                        href="/contacto" >Contacto</a></li>
                 </ul>
             </div>
         </div>
