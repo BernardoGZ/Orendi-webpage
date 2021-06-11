@@ -1,2 +1,3 @@
-./pictures
+./img
 node_modules
+.env
