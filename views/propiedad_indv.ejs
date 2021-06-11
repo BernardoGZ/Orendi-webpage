@@ -1,0 +1,82 @@
+<% let index = 3 %>
+<%- include ("partials/header") %>
+<%- include ("partials/navbar", {index}) %>
+
+<main>
+    <!-- Start photobooth -->
+    <div id="main-photobooth" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#main-photobooth" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#main-photobooth" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#main-photobooth" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="../casa2.jpeg" class="d-block w-100" alt="No image">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+            </div>
+        </div>
+        <a href="#main-photobooth"class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>            
+        <a href="#main-photobooth"class="carousel-control-next" data-slide="next" >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>            
+    </div>
+    <!-- End phototbooth -->
+    <!-- Start details -->
+    <div class="bg-light">
+        <div class="ms-5 pt-3">
+            <p><%= propiedad.tipo_de_edificio %> en <%= propiedad.tipo_de_disposicion %> ></p>
+        </div>
+        <div class="text-center py-5 my-3">
+            <h1><%= propiedad.titulo_corto %></h1>
+            <p><%= propiedad.ciudad %>, <%= propiedad.estado %></p>
+        </div>  
+        <div class="container">
+            <div class="row pb-5 px-5 mx-5 row-cols-md-2">
+                <h3 class="col">Detalles</h3>
+                <h3 class="col text-center"><%= propiedad.tipo_de_disposicion %> $<%= propiedad.precio.toLocaleString() %></h3>
+            </div>
+            <div class="row pb-5 px-5 mx-5">
+                <div class="col-lg-7 px-5 py-3 border shadow-lg">
+                    <p> Superficie:</p>
+                    <p> Cuartos: </p>
+                    <p> Baños:</p>
+                </div>
+                <div class="col-md-4 ms-5 px-5 py-3 border shadow-lg">
+                    <h3>Solicitar información</h3>
+                    <hr>
+                    <form class="row" action="">
+                        <div class="row">
+                            <label for="infoNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="infoNombre">
+                        </div>
+                        <div class="row">
+                            <label for="infoApellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="infoApellido">
+                        </div>
+                        <div class="row">
+                            <label for="infoEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="infoEmail">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row pb-5 px-5 mx-5 row-cols-md-2">
+                <h3 class="col">Descripción</h3>
+            </div>
+            <div class="row pb-5 px-5 mx-5 row-cols-md-2">
+                <div class="col-lg-7 px-5 py-3 border shadow-lg">
+                    <p> <%= propiedad.descripcion%></p>
+                </div>
+            </div>        
+        </div> 
+    </div>
+    <!-- End details -->
+</main>
+
+<%- include ("partials/footer") %>

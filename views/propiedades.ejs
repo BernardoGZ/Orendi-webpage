@@ -15,6 +15,48 @@
             </div>
         </div>
     </div>
+    <!-- Start property cards -->
+    <div class="bg-light">
+        <div class="text-center pt-5 pb-5">
+            <h2>Propiedades disponibles</h2>
+        </div>   
+        <div class="px-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <% for (var i = properties.length-1; i >= 0; i--)  {   %>
+                
+                <div class="col">
+                    <div class="card">
+                        <a class="position-relative" href="/propiedades/<%= properties[i]._id %>">
+                            <img class="card-img-top w-100 property-item-cover" src="<%= properties[i].image %>" alt="...">
+                            
+                            <div class="position-absolute top-0 left-0 pt-2 ps-3">
+                                <span class="badge rounded-pill bg-success"><%= properties[i].tipo_de_disposicion%></span>
+                            </div>
+                            <div class="position-absolute bottom-0 left-0 right-0 pb-2 px-3">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-12">
+                                        <h5 class="text-white mb-0">$<%= properties[i].precio.toLocaleString() %></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= properties[i].titulo %></h5>
+                            <p class="card-text"><i class="fas fa-bath"></i> 3 bathrooms</p>
+                            <a href="/propiedades/<%= properties[i]._id %>" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <%  } %>
+
+            </div>
+
+            
+        </div>
+    </div>
 </main>
 
 

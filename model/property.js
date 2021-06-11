@@ -2,7 +2,7 @@ const {Schema, model} = require("mongoose");
 
 const PropertySchema = Schema ({
     titulo: String,
-    // titulo_corto: String,
+    titulo_corto: String,
     tipo_de_disposicion: String,
     tipo_de_edificio: String,
     descripcion: String,

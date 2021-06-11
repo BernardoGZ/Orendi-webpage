@@ -6,6 +6,7 @@ const User = require('../model/user');
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const verify = require("../middleware/access");
+var ObjectId = require('mongodb').ObjectID;
 dotenv.config();
 
 let secret = process.env.SECRET_KEY || "";
@@ -25,7 +26,13 @@ router.get('/contacto', async function(req,res){
 });
 
 router.get('/propiedades', async function(req,res){
-    res.render("propiedades", {admin});
+    let properties = await Property.find();
+    res.render("propiedades", {properties, admin});
+});
+router.get('/propiedades/:id', async function(req,res){
+    let {id} = req.params;
+    let propiedad = await Property.findById(id);
+    res.render("propiedad_indv", {propiedad, admin});
 });
 router.get('/about', async function(req,res){
     res.render("acerca", {admin});
@@ -44,15 +51,14 @@ router.get('/exit', async function(req,res){
     res.render("admin/admin_exit", {admin});
 })
 
-
 /**
  * Post methods
  */
 
- router.post('/agregar_propiedad', async function(req,res){
+ router.post('/agregar', async function(req,res){
     let property = new Property(req.body);
     await property.save();
-    res.redirect("/agregar_propiedad");
+    res.redirect("/agregar");
 });
 
 router.post('/register', async (req,res) => {
