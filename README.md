@@ -14,7 +14,7 @@ El desarrollo se llevó a cabo usando mongoDB como herramienta de base de datos.
 
 Otras herramientas utilizadas:
     Express
-    Node
+    Node.js
     EJS
     Mongoose
     Bcrypt
